@@ -1,0 +1,40 @@
+<html lang="pt-br">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0">
+    <meta name="robots" content="max-image-preview:large">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  	<!--<link rel="icon" href="" sizes="32x32">-->
+  	<script>
+  	    //criando a Constante do botão
+   const btnGenerate = document.getElementById("#gerar-pdf");
+   
+   btnGenerate.addEventListener("click", () = >  {
+   //conteúdo do pdf
+   const content = document.getElementById("#content");
+   
+   // configurações do arquivo final pdf
+   const options = {
+     margin: [10, 10, 10 , 10],
+     filename: "lista.pdf",
+     html2canvas: { scale: 2},
+     jsPDF: {unit: "mm", format: "a4", orientation: "portrait"},
+   };
+   
+   // gerar e baixar o pdf
+   html2pdf().set(options).from(content).save();
+   }); 
+  	  
+  	</script>
+    <title></title>
+    <style> 
+    </style>
+  </head>
+  <body>
+     <div id="content">
+        <h1>Titulo Do texto</h1>
+        <p>Conteúdo Completo do pdf</p>
+     </div>
+     <button id="gerar-pdf">Gerar PDF</button>
+  </body>
+</html>
